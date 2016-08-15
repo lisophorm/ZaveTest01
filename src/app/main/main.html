@@ -1,0 +1,140 @@
+
+    <div id="review" class="flex-scrollable" layout="row" ms-scroll>
+      <div id="review-form-wrapper" layout="column" layout-align="center center">
+        <div id="review-form" class="md-whiteframe-8dp md-padding" flex-grow>
+          <!-- tabs -->
+
+          <md-tabs md-selected="vm.selectedIndex" md-dynamic-height md-border-bottom>
+            <md-tab label="Step 1">
+              <md-content class="md-padding">
+                <!-- begin content 1 -->
+                <form name="step1Form" ng-app="myApp" class="container-fluid"
+                      ng-submit="vm.submitStep1()">
+                  <div layout="row">
+                    <div layout="column" class="text-left" flex>
+                      <h2>User data and product review</h2>
+                      <label ng-show="vm.rating <0 || step1Form.$invalid" class="error"
+                             ng-show="vm.rating <0 && step1Form.$invalid">Please
+                        fill in all fields to continue</label>
+                      <md-input-container flex>
+                        <label>Name <span class="error">*</span></label>
+                        <input name="name" id="name" ng-model="vm.name" ng-required="true">
+
+                      </md-input-container>
+
+                      <md-input-container>
+                        <label>Your Title</label>
+                        <input name="title" id="title" ng-model="vm.title">
+
+                      </md-input-container>
+
+
+                      <md-input-container class="md-block">
+                        <label>Review <span class="error">*</span></label>
+                        <textarea ng-model="vm.review" md-maxlength="500" rows="5"
+                                  style="height:150px;"
+                                  md-select-on-focus ng-required="true"></textarea>
+                      </md-input-container>
+                      <div layout="row" layout-align="start center">
+                        <label>Rating </label>
+                        <star-rating required ng-model="vm.rating"></star-rating>
+
+                      </div>
+                      <md-divider></md-divider>
+                      <div layout=row" layout-align="start start" class="mt">
+                        <div layout="column">
+                          <md-button type="submit" class="md-primary"
+                                     ng-disabled="vm.rating <0 || step1Form.$invalid">NEXT
+                          </md-button>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+
+                </form>
+                <!-- end content 1 -->
+              </md-content>
+            </md-tab>
+            <md-tab label="Step 2" ng-disabled="vm.rating <0 || step1Form.$invalid">
+              <md-content class="md-padding">
+                <!-- begin content 2 -->
+
+                <form name="step2Form">
+                  <div layout="row">
+
+                    <div layout="column" class="text-left" flex>
+                      <h2>Share in social networks</h2>
+
+                      <md-list-item ng-repeat="item in vm.socialNetworks">
+
+
+                        <md-checkbox name="permiso" ng-model="item.status">
+
+                        </md-checkbox>
+                        <label class="ng-class: item.class;">{{item.title }}</label>
+                      </md-list-item>
+
+                      <div ng-show="vm.selectedNetworks.length===0">
+                        <label class="error">Please select at least 1 social network</label>
+
+                      </div>
+                      <md-divider></md-divider>
+                      <div layout="row" flex layout-align="start center">
+
+                        <md-button type="submit" ng-click="vm.submitStep2()" class="md-primary"
+                                   ng-disabled="vm.selectedNetworks.length===0">
+                          NEXT
+                        </md-button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <!-- end content 2 -->
+              </md-content>
+            </md-tab>
+            <md-tab label="Step 3" ng-disabled="vm.selectedNetworks.length===0">
+              <md-content class="md-padding">
+                <div layout="row">
+
+                  <div layout="column" class="text-left" flex>
+                    <h2>Preview Review</h2>
+                    <div layout="row" layout-align="start center">
+                      <label>Rating </label>
+                      <star-rating readonly="true" ng-model="vm.rating"></star-rating>
+
+                    </div>
+                    <h2 ng-show="vm.title">{{vm.title}}</h2>
+                    <p>{{vm.review}}</p>
+                    <p></p>
+                    <div layout="row" layout-align="start center">
+                      <label>Share on: </label>
+
+                      <div ng-repeat="item in vm.socialNetworks">
+                        <button class="ng-class: item.class;">
+
+
+                          {{item.title }}
+                        </button>
+                      </div>
+                    </div>
+                    <md-divider></md-divider>
+                    <div layout="row" flex layout-align="start center">
+
+                      <md-button ng-click="vm.submitStep3()" class="md-primary">
+                        SUBMIT
+                      </md-button>
+                    </div>
+                  </div>
+                </div>
+
+
+              </md-content>
+            </md-tab>
+          </md-tabs>
+          <!-- end of tabs -->
+
+        </div>
+      </div>
+    </div>

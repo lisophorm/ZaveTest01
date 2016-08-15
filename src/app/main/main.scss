@@ -1,0 +1,82 @@
+/* specific to review page */
+#view {
+  height: 100%;
+}
+
+#review {
+  background-color: #00AA00;
+}
+
+#review {
+  /*height: 100%;*/
+  background: url('/assets/images/background.jpg') no-repeat;
+  background-size: cover;
+
+
+  #review-form-wrapper {
+    flex: 1 0 auto;
+    padding: 32px;
+
+
+    #review-form {
+      width: 500px;
+      max-width: 500px;
+      padding: 32px;
+      background: #FFFFFF;
+
+
+      p,h2,md-input-container {
+        padding-left:8px;
+      }
+
+    }
+  }
+}
+
+md-checkbox {
+  margin-right:8px;
+}
+
+label,button {
+  border:none;
+  padding:8px;
+  min-width: 100px;
+  &.facebook {
+    background-color:#036cdb;
+    color:white;
+    margin-right:5px;
+  }
+  &.twitter {
+    background-color: #00ffff;
+    margin-right:5px;
+
+  }
+  &.linkedin {
+    background-color:#0000cc;
+    color:white;
+
+  }
+}
+
+
+
+@media screen and (max-width: $layout-breakpoint-xs) {
+  #review {
+    /*height: 100%;*/
+
+
+
+    #review-form-wrapper {
+
+      padding:8px;
+
+      #review-form {
+        padding:0;
+        width: 100%;
+        min-width:100%;
+
+      }
+    }
+  }
+}
+/* ************ */
