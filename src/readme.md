@@ -14,7 +14,6 @@ components -> starRaring-directive.js
     Custom directive for star rating
 
 app\main.html -> main view
-app\main.js -> main module definition
 app\Review.controller.js -> controller that handles
 
 Notes about the contoller:
