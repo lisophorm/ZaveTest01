@@ -22,7 +22,7 @@
 
       //console.log(source.offsetHeight);
     }
-    resizeFunc();
+    setTimeout(resizeFunc,300);
     w.bind('resize', resizeFunc);
 
 
